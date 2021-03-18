@@ -1,0 +1,19 @@
+{
+  "name": "hue_controller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Strombach/Hue_Controller.git"
+  },
+  "author": "Fredrik Strömbäck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Strombach/Hue_Controller/issues"
+  },
+  "homepage": "https://github.com/Strombach/Hue_Controller#readme"
+}
