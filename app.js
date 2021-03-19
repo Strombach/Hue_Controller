@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 // Routes
-app.use('/status', require('./routes/statusRouter'))
+app.use('/state', require('./routes/stateRouter'))
 
 // Catch 404
 app.use((req, res, next) => {

@@ -1,11 +1,11 @@
 const superagent = require('superagent')
 
-const statusController = {}
+const stateController = {}
 
 const url = process.env.HUE_URL
 const userId = process.env.USER_ID
 
-statusController.status = async (req, res, next) => {
+stateController.state = async (req, res, next) => {
   try {
     const response = await superagent.get(url + userId + '/lights')
 
@@ -15,7 +15,7 @@ statusController.status = async (req, res, next) => {
   }
 }
 
-statusController.updateState = async (req, res, next) => {
+stateController.updateState = async (req, res, next) => {
   try {
     const testUrl = `${url}${userId}/lights/${req.params.light}/state`
     const response = await superagent.put(testUrl).send({ on: true })
@@ -26,4 +26,4 @@ statusController.updateState = async (req, res, next) => {
   }
 }
 
-module.exports = statusController
+module.exports = stateController
