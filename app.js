@@ -5,12 +5,19 @@ require('dotenv').config({ path: '.env' })
 
 const port = 4000
 
+// Additional middleware
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+
+// Routes
 app.use('/status', require('./routes/statusRouter'))
 
+// Catch 404
 app.use((req, res, next) => {
   res.status(404).json('Not Found')
 })
 
+// Error handler
 app.use((err, req, res, next) => {
   res.status(err.status || 500)
   res.send(err.message || 'Internal Server Error')
