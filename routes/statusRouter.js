@@ -5,4 +5,6 @@ const controller = require('../controllers/statusController')
 
 router.get('/', controller.status)
 
+router.get('/:light/off', controller.updateState)
+
 module.exports = router

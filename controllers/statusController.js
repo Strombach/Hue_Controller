@@ -15,4 +15,15 @@ statusController.status = async (req, res, next) => {
   }
 }
 
+statusController.updateState = async (req, res, next) => {
+  try {
+    const testUrl = `${url}${userId}/lights/${req.params.light}/state`
+    const response = await superagent.put(testUrl).send({ on: true })
+
+    res.json(response.body)
+  } catch (error) {
+    res.send(error)
+  }
+}
+
 module.exports = statusController
