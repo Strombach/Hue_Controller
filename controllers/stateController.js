@@ -15,10 +15,10 @@ stateController.state = async (req, res, next) => {
   }
 }
 
-stateController.updateState = async (req, res, next) => {
+stateController.updateOnOff = async (req, res, next) => {
   try {
     const testUrl = `${url}${userId}/lights/${req.params.light}/state`
-    const response = await superagent.put(testUrl).send({ on: true })
+    const response = await superagent.put(testUrl).send({ on: req.body.on })
 
     res.json(response.body)
   } catch (error) {
