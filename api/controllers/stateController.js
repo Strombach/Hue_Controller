@@ -7,7 +7,7 @@ const userId = process.env.USER_ID
 
 stateController.state = async (req, res, next) => {
   try {
-    const response = await superagent.get(url + userId + '/lights')
+    const response = await superagent.get(`${url}/${userId}/lights/`)
 
     res.json(response.body)
   } catch (error) {
@@ -17,7 +17,7 @@ stateController.state = async (req, res, next) => {
 
 stateController.updateOnOff = async (req, res, next) => {
   try {
-    const testUrl = `${url}${userId}/lights/${req.params.light}/state`
+    const testUrl = `${url}/${userId}/lights/${req.params.light}/state`
     const response = await superagent.put(testUrl).send({ on: req.body.on })
 
     res.json(response.body)
