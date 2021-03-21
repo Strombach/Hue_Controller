@@ -1,5 +1,5 @@
 <template>
-  <div :key="light.name" v-for="light in lights">
+  <div :id="light.uniqueid" v-for="light in lights">
     <Light :light="light" />
   </div>
 </template>
