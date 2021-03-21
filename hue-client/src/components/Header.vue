@@ -1,12 +1,12 @@
 <template>
-  <h1>HueVue</h1>
+  <h1>{{ title }}</h1>
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
-  name: "Header",
-  components: {}
-};
+  name: 'Header',
+  props: {
+    title: String
+  }
+}
 </script>
