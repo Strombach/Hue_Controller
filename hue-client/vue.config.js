@@ -1,12 +1,11 @@
 module.exports = {
   devServer: {
     proxy: {
-      '^/state': {
-        target: 'http://localhost:4000/state',
+      '^/api': {
+        target: 'http://localhost:4000',
         changeOrigin: true,
         logLevel: 'debug',
-        ws: true,
-        pathRewrite: { '^/state': '/' }
+        pathRewrite: { '^/api': '/' }
       }
     }
   }

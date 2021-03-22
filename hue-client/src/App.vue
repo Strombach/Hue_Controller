@@ -1,6 +1,6 @@
 <template>
   <Header title="HueVue" />
-  <Lights :lights="lights" />
+  <Lights @toggle-light="toggleLight" :lights="lights" />
   <img alt="Vue logo" src="./assets/logo.png" />
 </template>
 
@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     async fetchLights() {
-      const res = await fetch( '/state/' )
+      const res = await fetch( 'api/state' )
       const data = await res.json()
 
       const tempArr = Object.entries( await data )
@@ -31,9 +31,18 @@ export default {
         dataArr.push( arr[0] )
       } )
 
-      console.log( dataArr )
-
       return dataArr
+    },
+    async toggleLight( light ) {
+      const res = await fetch( `api/state/${light.id}/onoff`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify( {
+          on: !light.state.on
+        } )
+      } )
     }
   },
   async created() {

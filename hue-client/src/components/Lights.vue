@@ -1,6 +1,6 @@
 <template>
   <div :id="light.id" v-for="light in lights">
-    <Light @toggle-light="toggleLight" :light="light" />
+    <Light @toggle-light="$emit('toggle-light', light)" :light="light" />
   </div>
 </template>
 
@@ -15,10 +15,6 @@ export default {
   components: {
     Light
   },
-  methods: {
-    toggleLight( light ) {
-      console.log( light )
-    }
-  }
+  emits: ['toggle-light']
 }
 </script>
