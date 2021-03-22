@@ -15,17 +15,30 @@ export default {
     Lights
   },
   data() {
-    return { lights: {} }
+    return { lights: [] }
   },
   methods: {
     async fetchLights() {
       const res = await fetch( '/state/' )
       const data = await res.json()
-      return data
+
+      const tempArr = Object.entries( await data )
+      const dataArr = []
+
+      tempArr.forEach( ( arr ) => {
+        arr[1].id = arr[0]
+        arr.shift()
+        dataArr.push( arr[0] )
+      } )
+
+      console.log( dataArr )
+
+      return dataArr
     }
   },
   async created() {
     this.lights = await this.fetchLights()
+
   }
 }
 </script>

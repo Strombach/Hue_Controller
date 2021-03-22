@@ -1,6 +1,6 @@
 <template>
-  <div :id="light.uniqueid" v-for="light in lights">
-    <Light :light="light" />
+  <div :id="light.id" v-for="light in lights">
+    <Light @toggle-light="toggleLight" :light="light" />
   </div>
 </template>
 
@@ -10,10 +10,15 @@ import Light from './Light'
 export default {
   name: 'Lights',
   props: {
-    lights: Object
+    lights: Array
   },
   components: {
     Light
+  },
+  methods: {
+    toggleLight( light ) {
+      console.log( light )
+    }
   }
 }
 </script>
