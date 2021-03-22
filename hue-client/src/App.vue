@@ -1,6 +1,8 @@
 <template>
   <Header title="HueVue" />
-  <Lights @toggle-light="toggleLight" :lights="lights" />
+  <div class="lights">
+    <Lights @toggle-light="toggleLight" :lights="lights" />
+  </div>
   <img alt="Vue logo" src="./assets/logo.png" />
 </template>
 
@@ -76,5 +78,11 @@ export default {
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
+}
+.lights {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 </style>
