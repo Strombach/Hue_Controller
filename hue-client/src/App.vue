@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     async fetchLights() {
-      const res = await fetch( 'api/state' )
+      const res = await fetch( '/state' )
       const data = await res.json()
 
       const tempArr = Object.entries( await data )
@@ -34,7 +34,7 @@ export default {
       return dataArr
     },
     async toggleLight( light ) {
-      const res = await fetch( `api/state/${light.id}/onoff`, {
+      const res = await fetch( `/state/${light.id}/onoff`, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json'
@@ -46,13 +46,11 @@ export default {
 
       if ( res.status === 200 ) {
         light.state.on = !light.state.on
-        console.log( light.state.on )
       }
     }
   },
   async created() {
     this.lights = await this.fetchLights()
-
   }
 }
 </script>
