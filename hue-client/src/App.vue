@@ -43,6 +43,11 @@ export default {
           on: !light.state.on
         } )
       } )
+
+      if ( res.status === 200 ) {
+        light.state.on = !light.state.on
+        console.log( light.state.on )
+      }
     }
   },
   async created() {
