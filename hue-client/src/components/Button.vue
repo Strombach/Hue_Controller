@@ -1,5 +1,9 @@
 <template>
-  <button @click="$emit('btn-click')" :style="{ background: color }">
+  <button
+    @click="$emit('btn-click')"
+    :style="{ background: color }"
+    class="btn"
+  >
     {{ name }}
   </button>
 </template>
